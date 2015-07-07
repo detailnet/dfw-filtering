@@ -1,0 +1,55 @@
+{
+    "name": "detailnet/dfw-filtering",
+    "description": "DETAIL Framework library for input filtering",
+    "type": "library",
+    "keywords": [
+        "dfw",
+        "detailnet",
+        "input",
+        "filtering"
+    ],
+    "homepage": "https://github.com/detailnet/dfw-filtering/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Wolf",
+            "email": "ivan.wolf@detailnet.ch"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.6",
+        "squizlabs/php_codesniffer" : "~2.3",
+        "phpmd/phpmd": "~2.2",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Detail\\Filtering\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "DetailTest\\Filtering\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "!vendor",
+            "tests",
+            "*phpunit.xml",
+            ".coveralls.yml",
+            ".travis.yml",
+            "build.xml",
+            "build.properties",
+            "composer.phar"
+        ]
+    }
+}
