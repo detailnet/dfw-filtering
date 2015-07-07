@@ -23,7 +23,11 @@
         "phpunit/phpunit": "~4.6",
         "squizlabs/php_codesniffer" : "~2.3",
         "phpmd/phpmd": "~2.2",
-        "satooshi/php-coveralls": "dev-master"
+        "satooshi/php-coveralls": "dev-master",
+        "zendframework/zend-inputfilter": "2.*"
+    },
+    "suggest": {
+        "zendframework/zend-inputfilter": "For usage of the Zend\\InputFilter based input filter"
     },
     "autoload": {
         "psr-0": {
