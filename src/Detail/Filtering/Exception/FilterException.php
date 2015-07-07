@@ -8,7 +8,8 @@ class FilterException extends RuntimeException
      * @param array $messages
      * @return FilterException
      */
-    public static function fromMessages(array $messages) {
+    public static function fromMessages(array $messages)
+    {
         $formattedMessages = array();
         $flattenedMessages = self::flattenMessages($messages);
 
