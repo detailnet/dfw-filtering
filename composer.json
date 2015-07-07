@@ -24,10 +24,14 @@
         "squizlabs/php_codesniffer" : "~2.3",
         "phpmd/phpmd": "~2.2",
         "satooshi/php-coveralls": "dev-master",
-        "zendframework/zend-inputfilter": "2.*"
+        "zendframework/zend-inputfilter": "2.*",
+        "zendframework/zend-validator": "2.*",
+        "ramsey/uuid": "~2.8.1"
     },
     "suggest": {
-        "zendframework/zend-inputfilter": "For usage of the Zend\\InputFilter based input filter"
+        "zendframework/zend-inputfilter": "For usage of the Zend\\InputFilter based input filter",
+        "zendframework/zend-validator": "For usage of the Zend\\Validator based validators",
+        "ramsey/uuid": "For usage of the UuidV4 validator"
     },
     "autoload": {
         "psr-0": {
