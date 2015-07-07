@@ -1,6 +1,6 @@
 <?php
 
-namespace Detail\Filtering\InputFilter\Zend\Validator;
+namespace Detail\Filtering\Zend\Validator;
 
 use Zend\Validator\AbstractValidator as BaseValidator;
 

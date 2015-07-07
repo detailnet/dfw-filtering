@@ -1,6 +1,6 @@
 <?php
 
-namespace Detail\Filtering\InputFilter\Zend\InputFilter;
+namespace Detail\Filtering\Zend\InputFilter;
 
 use Zend\InputFilter\CollectionInputFilter as BaseCollectionInputFilter;
 
