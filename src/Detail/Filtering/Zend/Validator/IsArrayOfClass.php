@@ -18,7 +18,7 @@ class IsArrayOfClass extends BaseValidator
      */
     protected $messageTemplates = array(
         self::INVALID_ARRAY   => 'Value is not an array',
-        self::INVALID_ELEMENT => 'One or more elements of array are not an object of %class% class',
+        self::INVALID_ELEMENT => 'One or more elements of array are not an instance of %class% class',
     );
 
     /**
@@ -42,19 +42,20 @@ class IsArrayOfClass extends BaseValidator
      *
      * @param array|string $options
      */
-    public function __construct($options = null)
+    public function __construct($options)
     {
-        if (is_string($options) && class_exists($options)) {
-            $options = array('class' => $options);
+        if (is_string($options)) {
+            $this->setClass($options);
+            $options = null;
         }
 
         parent::__construct($options);
     }
 
     /**
-     * Returns the set class
+     * Returns the set class.
      *
-     * @return mixed
+     * @return string
      */
     public function getClass()
     {
@@ -64,14 +65,16 @@ class IsArrayOfClass extends BaseValidator
     /**
      * Sets the class
      *
-     * @param  string $class
+     * @param string $class
      * @return self Provides a fluent interface
      * @throws Exception\InvalidArgumentException
      */
     public function setClass($class)
     {
-        if (!class_exists($class)) {
-            throw new Exception\InvalidArgumentException('Invalid class given');
+        if (!(class_exists($class) || interface_exists($class))) {
+            throw new Exception\InvalidArgumentException(
+                sprintf('Invalid class/interface given: %s', $class)
+            );
         }
 
         $this->options['class'] = $class;
@@ -79,8 +82,8 @@ class IsArrayOfClass extends BaseValidator
     }
 
     /**
-     * @param  mixed $value
-     * @return bool
+     * @param mixed $value
+     * @return boolean
      * @throws Exception\InvalidArgumentException
      */
     public function isValid($value)
@@ -88,6 +91,7 @@ class IsArrayOfClass extends BaseValidator
         $this->setValue($value);
 
         $class = $this->getClass();
+
         if (empty($class)) {
             throw new Exception\InvalidArgumentException('No class given');
         }
@@ -109,7 +113,7 @@ class IsArrayOfClass extends BaseValidator
             );
         };
 
-        if (! $arrayValuesSubclassOf($value, $class)) {
+        if (!$arrayValuesSubclassOf($value, $class)) {
             $this->error(self::INVALID_ELEMENT);
             return false;
         }
