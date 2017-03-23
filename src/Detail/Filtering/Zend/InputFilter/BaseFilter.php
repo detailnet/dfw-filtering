@@ -15,7 +15,7 @@ abstract class BaseFilter extends InputFilter implements
     FilterInterface
 {
     /**
-     * @var bool
+     * @var boolean
      */
     protected $required = true;
 
@@ -141,9 +141,10 @@ abstract class BaseFilter extends InputFilter implements
     /**
      * Is the data set valid?
      *
-     * @return bool
+     * @param mixed|null $context
+     * @return boolean
      */
-    public function isValid()
+    public function isValid($context = null)
     {
         // When there's an invalid data type, it should immediately report as invalid.
         if ($this->invalidDataTypeException !== null) {
@@ -161,7 +162,7 @@ abstract class BaseFilter extends InputFilter implements
             return true;
         }
 
-        return parent::isValid();
+        return parent::isValid($context);
     }
 
     /**
