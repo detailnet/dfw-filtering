@@ -17,16 +17,16 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0"
+        "php": "^7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.6",
-        "squizlabs/php_codesniffer" : "~2.3",
-        "phpmd/phpmd": "~2.2",
-        "satooshi/php-coveralls": "dev-master",
-        "zendframework/zend-inputfilter": "2.*",
-        "zendframework/zend-validator": "2.*",
-        "ramsey/uuid": "~2.8.1"
+        "phpunit/phpunit": "^6.0",
+        "squizlabs/php_codesniffer" : "^2.2",
+        "phpmd/phpmd": "^2.2",
+        "satooshi/php-coveralls": "^1.0",
+        "zendframework/zend-inputfilter": "^2.7.2",
+        "zendframework/zend-validator": "^2.8",
+        "ramsey/uuid": "^3.4"
     },
     "suggest": {
         "zendframework/zend-inputfilter": "For usage of the Zend\\InputFilter based input filter",

@@ -2,20 +2,26 @@
 
 namespace Detail\Filtering\Zend\InputFilter;
 
-use Zend\InputFilter\CollectionInputFilter as BaseCollectionInputFilter;
+use Traversable;
 
-use Detail\Filtering\Exception;
+use Zend\InputFilter\BaseInputFilter;
+use Zend\InputFilter\CollectionInputFilter as BaseCollectionInputFilter;
 
 class CollectionInputFilter extends BaseCollectionInputFilter
 {
+    /**
+     * @param BaseInputFilter|array|Traversable $inputFilter
+     * @return CollectionInputFilter
+     */
     public function setInputFilter($inputFilter)
     {
         if (is_string($inputFilter)) {
             $inputFilters = $this->getFactory()->getInputFilterManager();
-
             $inputFilter = $inputFilters->get($inputFilter);
         }
 
-        return parent::setInputFilter($inputFilter);
+        parent::setInputFilter($inputFilter);
+
+        return $this;
     }
 }

@@ -2,10 +2,9 @@
 
 namespace Detail\Filtering\Zend\Validator;
 
-use Rhumsaa\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 use Zend\Validator\AbstractValidator as BaseValidator;
-use Zend\Validator\Exception;
 
 class UuidV4 extends BaseValidator
 {
